@@ -245,6 +245,31 @@
     });
 });
 
+const observerOptions = {
+    threshold: 0.5,
+    rootMargin: '0px 0px -100px 0px'
+};
+
+const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const skillBars = entry.target.querySelectorAll('.skill-progress');
+            skillBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0%';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 500);
+            });
+        }
+    });
+}, observerOptions);
+
+const skillsSection = document.querySelector('.skills');
+if (skillsSection) {
+    observer.observe(skillsSection);
+}
+
  (function(){
     emailjs.init({ publicKey: "Yqn79Kfg94-7vnG8qG" }); 
   })();
