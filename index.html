@@ -252,17 +252,17 @@
   const form = document.getElementById("contactForm");
   const statusEl = document.getElementById("status");
 
-  form.addEventListener("submit", function(e) {
+form.addEventListener("submit", function(e) {
   e.preventDefault();
-    statusEl.textContent = "Mengirim...";
+  statusEl.textContent = "Mengirim...";
 
-    emailjs.sendForm("service_deu83jl", "template_vbsm7w8", this)
-      .then(() => {
-        statusEl.textContent = "Pesan terkirim ✅";
-        form.reset();
-      }, (err) => {
-        console.error(err);
-        statusEl.textContent = "Gagal mengirim ❌";
+  emailjs.sendForm("service_deu83jl", "template_vbsm7w8", form)
+    .then(() => {
+      statusEl.textContent = "Pesan terkirim ✅";
+      form.reset();
+    }, (err) => {
+      console.error("EmailJS error:", err);
+      statusEl.textContent = "Gagal mengirim ❌";
       });
   });
    </script>
