@@ -243,6 +243,47 @@
         bar.style.width = width + "%"; 
     });
 });
+
+<!-- load library emailjs -->
+ type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script>
+  // inisialisasi EmailJS
+  (function(){
+    emailjs.init({
+      publicKey: "qn79Kfg94-7vnG8qG", // ganti dengan Public Key
+    });
+  })();
+</script>
+
+<form id="contactForm">
+  <input type="text" name="name" placeholder="Nama" required />
+  <input type="email" name="email" placeholder="Email" required />
+  <textarea name="message" placeholder="Pesan" required></textarea>
+  <button type="submit">Kirim</button>
+  <p id="status"></p>
+</form>
+<script>
+
+  const form = document.getElementById('contactForm');
+  const statusEl = document.getElementById('status');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    statusEl.textContent = "Mengirim...";
+
+    emailjs.sendForm("service_deu83jl", "template_vbsm7w8", this)
+      .then(() => {
+        statusEl.textContent = "Terkirim ✅";
+        form.reset();
+      }, (err) => {
+        console.error("EmailJS error:", err);
+        statusEl.textContent = "Gagal mengirim ❌";
+      });
+  });
+</script>
+
    </script>
 
    <footer>
