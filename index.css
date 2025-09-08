@@ -644,10 +644,11 @@ body {
         }
 
         .projects{
+            
     font-size: 1.5rem;
     padding: 50px 20px;
 }
-.projects h2{
+.projects h2{   
     border-top: 2px solid;
     text-align: center;
 }
@@ -688,6 +689,7 @@ body {
     font-size: 3rem;
     margin-bottom: 3rem;
     text-shadow: 0 0 20px cyan;
+    margin-left: 1.7rem;
 }
 
 /* Container Flex */
