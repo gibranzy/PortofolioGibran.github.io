@@ -246,16 +246,16 @@
 
 <!-- load library emailjs -->
  type="text/javascript"
-  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
 
-<script>
+
   // inisialisasi EmailJS
   (function(){
     emailjs.init({
       publicKey: "qn79Kfg94-7vnG8qG", // ganti dengan Public Key
     });
   })();
-</script>
+
 
 <form id="contactForm">
   <input type="text" name="name" placeholder="Nama" required />
@@ -264,7 +264,7 @@
   <button type="submit">Kirim</button>
   <p id="status"></p>
 </form>
-<script>
+
 
   const form = document.getElementById('contactForm');
   const statusEl = document.getElementById('status');
@@ -284,7 +284,7 @@
   });
 </script>
 
-   </script>
+   
 
    <footer>
         bambimbum
