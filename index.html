@@ -243,6 +243,27 @@
         bar.style.width = width + "%"; 
     });
 });
+
+ (function(){
+    emailjs.init({ publicKey: "Yqn79Kfg94-7vnG8qG" }); 
+  })();
+
+  const form = document.getElementById("contactForm");
+  const statusEl = document.getElementById("status");
+
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+    statusEl.textContent = "Mengirim...";
+
+    emailjs.sendForm("service_deu83jl", "template_vbsm7w8", this)
+      .then(() => {
+        statusEl.textContent = "Pesan terkirim ✅";
+        form.reset();
+      }, (err) => {
+        console.error(err);
+        statusEl.textContent = "Gagal mengirim ❌";
+      });
+  });
    </script>
 
    <footer>
